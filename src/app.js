@@ -1,7 +1,7 @@
 'use strict';
 
 const CM = 41.2;
-const ARC_HEIGHT_DIVIDER = 3;
+const ARC_HEIGHT_DIVIDER = 4;
 const AXIS_LOCATION = 85;
 
 const firstValue = getRandomValue(6, 9);
@@ -42,7 +42,7 @@ createArcInput(0, firstValue * CM);
 
 function createArc(startArcX, endArcX) {
     const arcCenterX = startArcX + (endArcX - startArcX) / 2;
-    const arcCenterY = AXIS_LOCATION - (endArcX - startArcX) / ARC_HEIGHT_DIVIDER;
+    const arcCenterY = (AXIS_LOCATION - (endArcX - startArcX)) / ARC_HEIGHT_DIVIDER;
 
     ctx.beginPath();
     ctx.lineWidth = "2";
@@ -64,11 +64,12 @@ function createArcInput(startArcX, endArcX) {
     input.setAttribute("type", "text");
     input.setAttribute("maxlength", "1");
     input.classList.add('arc-input');
-
-    input.style.left = startArcX + (arrSummands[count] * CM) / 2 - 23 + 'px';
-    input.style.top = AXIS_LOCATION / 2 - (endArcX - startArcX) / ARC_HEIGHT_DIVIDER + 'px';
-
     containerCanvas.appendChild(input);
+
+    input.style.left = startArcX + (endArcX - startArcX) / 2 - input.clientWidth / 1.5 + 'px';
+    /*input.style.top = (AXIS_LOCATION - (endArcX - startArcX)) / ARC_HEIGHT_DIVIDER - input.clientWidth / 2 + 'px';*/
+    input.style.top = -(endArcX - startArcX) / ARC_HEIGHT_DIVIDER + 'px';
+
 
     input.addEventListener("input", function (evt) {
         verificationInput(evt.target)
