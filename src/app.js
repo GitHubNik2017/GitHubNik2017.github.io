@@ -67,7 +67,6 @@ function createArcInput(startArcX, endArcX) {
     containerCanvas.appendChild(input);
 
     input.style.left = startArcX + (endArcX - startArcX) / 2 - input.clientWidth / 1.5 + 'px';
-    /*input.style.top = (AXIS_LOCATION - (endArcX - startArcX)) / ARC_HEIGHT_DIVIDER - input.clientWidth / 2 + 'px';*/
     input.style.top = -(endArcX - startArcX) / ARC_HEIGHT_DIVIDER + 'px';
 
 
