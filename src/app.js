@@ -64,11 +64,11 @@ function createArcInput(startArcX, endArcX) {
     input.setAttribute("type", "text");
     input.setAttribute("maxlength", "1");
     input.classList.add('arc-input');
-    containerCanvas.appendChild(input);
 
-    input.style.left = startArcX + (endArcX - startArcX) / 2 - input.clientWidth / 1.5 + 'px';
+    input.style.left = startArcX + (endArcX - startArcX) / 2 - 30+ 'px';
     input.style.top = -(endArcX - startArcX) / ARC_HEIGHT_DIVIDER + 'px';
 
+    containerCanvas.appendChild(input);
 
     input.addEventListener("input", function (evt) {
         verificationInput(evt.target)
